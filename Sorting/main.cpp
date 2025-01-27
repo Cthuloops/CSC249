@@ -21,7 +21,7 @@ void print_menu(const int&);
 int get_menu_choice(const int&, istream& = cin);
 
 template<typename Sorter, typename Container>
-void selection_sort(const Sorter&, const Container&);
+void print_sort_results(const Sorter&, const Container&);
 
 int main() {
     constexpr array<const char*, 1> algos {
@@ -38,7 +38,7 @@ int main() {
         switch (input) {
             case 1:
                 int_sorter.set_strategy(new Selection<int>());
-                selection_sort(int_sorter, numbers);
+                print_sort_results(int_sorter, numbers);
                 break;
             case algos.size() + 1:
                 cout << "Exiting" << endl;
@@ -76,21 +76,21 @@ int get_menu_choice(const int& num_choices, istream& in) {
 }
 
 template<typename Sorter, typename Container>
-void selection_sort(const Sorter& selection_sorter, const Container& to_sort) {
+void print_sort_results(const Sorter& sorter, const Container& to_sort) {
     cout << "Original: ";
     for (const auto& element : to_sort) {
         cout << element << " ";
     }
     cout << '\n';
 
-    auto ascending = selection_sorter.sort_ascending(to_sort);
+    auto ascending = sorter.sort_ascending(to_sort);
     cout << "Ascending: ";
     for (const auto& element : ascending) {
         cout << element << " ";
     }
     cout << '\n';
 
-    auto descending = selection_sorter.sort_descending(to_sort);
+    auto descending = sorter.sort_descending(to_sort);
     cout << "Descending: ";
     for (const auto& element : descending) {
         cout << element << " ";
