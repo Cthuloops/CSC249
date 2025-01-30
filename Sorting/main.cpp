@@ -13,6 +13,7 @@
 #include <sstream>
 #include <vector>
 #include "./Sorter.hpp"
+#include "./SortStrategyFactory.hpp"
 
 
 using namespace std;
@@ -37,7 +38,8 @@ int main() {
         input = get_menu_choice(algos.size());
         switch (input) {
             case 1:
-                int_sorter.set_strategy(new Selection<int>());
+                int_sorter.set_strategy(StrategyFactory<int>::create_strategy(SELECTION));
+                // int_sorter.set_strategy(new Selection<int>());
                 print_sort_results(int_sorter, numbers);
                 cout << endl;
                 break;
