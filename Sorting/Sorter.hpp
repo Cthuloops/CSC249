@@ -2,7 +2,7 @@
 #define SORTING_SORTER_HPP_
 
 #include <vector>
-#include "./SortStrategy.hpp"
+#include "./interfaces/SortStrategy.hpp"
 
 
 template<typename T>

@@ -10,7 +10,7 @@
 #include <functional>
 #include <utility>
 #include <vector>
-#include "./SortStrategy.hpp"
+#include "../interfaces/SortStrategy.hpp"
 
 template<typename T>
 class Selection : public SortStrategy<T> {

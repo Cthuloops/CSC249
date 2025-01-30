@@ -13,7 +13,6 @@
 #include <sstream>
 #include <vector>
 #include "./Sorter.hpp"
-#include "./SelectionSort.hpp"
 
 
 using namespace std;
