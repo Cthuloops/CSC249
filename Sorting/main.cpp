@@ -7,6 +7,7 @@
 
 
 #include <array>
+#include <iomanip>
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -39,6 +40,7 @@ int main() {
             case 1:
                 int_sorter.set_strategy(new Selection<int>());
                 print_sort_results(int_sorter, numbers);
+                cout << endl;
                 break;
             case algos.size() + 1:
                 cout << "Exiting" << endl;
@@ -77,21 +79,21 @@ int get_menu_choice(const int& num_choices, istream& in) {
 
 template<typename Sorter, typename Container>
 void print_sort_results(const Sorter& sorter, const Container& to_sort) {
-    cout << "Original: ";
+    cout << "Original:" << setw(5);
     for (const auto& element : to_sort) {
         cout << element << " ";
     }
     cout << '\n';
 
     auto ascending = sorter.sort_ascending(to_sort);
-    cout << "Ascending: ";
+    cout << "Ascending:" << setw(4);
     for (const auto& element : ascending) {
         cout << element << " ";
     }
     cout << '\n';
 
     auto descending = sorter.sort_descending(to_sort);
-    cout << "Descending: ";
+    cout << "Descending:" << setw(3);
     for (const auto& element : descending) {
         cout << element << " ";
     }

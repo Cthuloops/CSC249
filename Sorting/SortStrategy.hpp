@@ -1,4 +1,4 @@
-#ifndef SORTING_SORTSTRATEGY_HPP_
+ #ifndef SORTING_SORTSTRATEGY_HPP_
 #define SORTING_SORTSTRATEGY_HPP_
 
 #include <functional>
