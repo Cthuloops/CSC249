@@ -24,6 +24,7 @@ int get_menu_choice(const int&, istream& = cin);
 template<typename Sorter, typename Container>
 void print_sort_results(const Sorter&, const Container&);
 
+
 int main() {
     constexpr array<const char*, 1> algos {
         "Selection Sort"
@@ -38,8 +39,8 @@ int main() {
         input = get_menu_choice(algos.size());
         switch (input) {
             case 1:
-                int_sorter.set_strategy(StrategyFactory<int>::create_strategy(SELECTION));
-                // int_sorter.set_strategy(new Selection<int>());
+                int_sorter.set_strategy(
+                    StrategyFactory::create_strategy<int>(SF::SELECTION));
                 print_sort_results(int_sorter, numbers);
                 cout << endl;
                 break;

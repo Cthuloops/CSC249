@@ -1,24 +1,26 @@
 #ifndef SORTING_SORTSTRATEGYFACTORY_HPP_
 #define SORTING_SORTSTRATEGYFACTORY_HPP_
 
-#include <utility>
 #include "./interfaces/SortStrategy.hpp"
 #include "./strategies/SelectionSort.hpp"
 
-typedef enum Strat {
+namespace SF {
+enum Strategy {
     SELECTION
-} Strat;
-
-template<typename T>
-class StrategyFactory {
- public:
-    static SortStrategy<T>* create_strategy(const Strat& strategy) {
-        switch (strategy) {
-            case SELECTION:
-                return std::move(new Selection<T>);
-        }
-    }
 };
+}  // namespace SF
 
+
+namespace StrategyFactory {
+template<typename T>
+inline SortStrategy<T>* create_strategy(const SF::Strategy& strategy) {
+    switch (strategy) {
+        case SF::SELECTION:
+            return new Selection<T>();
+        default:
+            return nullptr;  // Should never have a nullptr returned
+    }
+}
+}  // namespace StrategyFactory
 
 #endif  // SORTING_SORTSTRATEGYFACTORY_HPP_
