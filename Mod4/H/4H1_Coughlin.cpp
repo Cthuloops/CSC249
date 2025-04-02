@@ -1,6 +1,6 @@
 /*
  * CSC249
- * 4H1 - Binary Search and Guessing games - Silver
+ * 4H1 - Binary Search and Guessing games - Gold
  * Harley Coughlin
  * 04/01/2025
  */
@@ -23,8 +23,35 @@ int binary_search(const vector<int>& numbers, const int& key);
 
 
 int main() {
-    // bronze();
-    silver();
+    int choice;
+    bool keep_going = true;
+    while (keep_going) {
+        cout << "\n~~~~Welcome to the Main Menu~~~~\n"
+             << "1. Binary Search Demo\n"
+             << "2. Binary Guess the Number Game\n"
+             << "3. Quit\n";
+        cout << "Select an option (1, 2, 3): ";
+        cin >> choice;
+        while (cin.fail() || !(choice == 1 || choice == 2 || choice == 3)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Select an option (1, 2, 3): ";
+            cin >> choice;
+        }
+        switch (choice) {
+            case 1:
+                bronze();
+                break;
+            case 2:
+                silver();
+                break;
+            case 3:
+                cout << "Thanks for using the program!" << endl;
+                keep_going = false;
+                break;
+        }
+    }
+
     return 0;
 }
 
